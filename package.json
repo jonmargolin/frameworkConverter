@@ -8,5 +8,9 @@
     "node-fetch": "^2.7.0",
     "openai": "^4.6.0",
     "readline-sync": "^1.4.10"
-  }
+  },
+  "scripts": {
+  "compile": "tsc src/AngularToReactConverter.ts",
+  "convert":"node src/AngularToReactConverter"
+}
 }
