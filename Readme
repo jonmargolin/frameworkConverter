@@ -1,0 +1,2 @@
+use "npm run compile" to transpile the typescript into js
+use "npm run convert" to activate the converter
