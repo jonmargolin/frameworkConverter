@@ -10,7 +10,7 @@
     "readline-sync": "^1.4.10"
   },
   "scripts": {
-  "compile": "tsc src/AngularToReactConverter.ts",
-  "convert":"node src/AngularToReactConverter"
-}
+    "compile": "tsc",
+    "convert": "node src/build/AngularToReactConverter"
+  }
 }
