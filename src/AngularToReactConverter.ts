@@ -1,9 +1,8 @@
 /* eslint-disable */
-const nodeFetch = require('node-fetch');
-const OpenAI = require('openai');
-require('dotenv').config();
 
-class AngularToReactConverter {
+import OpenAI from 'openai';
+
+export class AngularToReactConverter {
   private component: string;
   private openai: any;
 
@@ -11,7 +10,7 @@ class AngularToReactConverter {
     this.component = component;
 
     const newConfig = {
-      apiKey: process.env.OPENAI_SECRET_KEY
+      apiKey: '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'
     };
     this.openai = new OpenAI(newConfig);
   }
@@ -50,15 +49,14 @@ class AngularToReactConverter {
 }
 
 // Test the class
+export const myAngularComponent = `
+@Component({
+    selector: 'app-root',
+    template: '<div>Hello Angular</div>',
+})
+export class AppComponent {}
+`;
 (async () => {
-  const myAngularComponent = `
-    @Component({
-        selector: 'app-root',
-        template: '<div>Hello Angular</div>',
-    })
-    export class AppComponent {}
-    `;
-
   const converter = new AngularToReactConverter(myAngularComponent);
   try {
     const reactComponent = await converter.convertToReact();

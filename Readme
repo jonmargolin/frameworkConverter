@@ -1,2 +1,5 @@
 use "npm run compile" to transpile the typescript into js
 use "npm run convert" to activate the converter
+
+##  Run npm run build for building the project
+- form the dis folder  run node main{{has}}.js  convert  to get  the convert  output
