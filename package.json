@@ -11,6 +11,6 @@
   },
   "scripts": {
     "compile": "tsc",
-    "convert": "node src/build/AngularToReactConverter"
+    "convert": "node src/build/Converter"
   }
 }
