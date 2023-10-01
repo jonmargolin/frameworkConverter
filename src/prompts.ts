@@ -22,6 +22,8 @@ Please avoid adding any additional text beyond your generated response.
 
 Please take into account that extention and name are two separate fields when constructing your response
 
+Please take into account that the content not related to coding or specific naming instructions shouldnt be changed. 
+
 The conversion process will follow the rules detailed below to generate the converted component's content, name, and extension:
 `,
 
@@ -32,6 +34,8 @@ The conversion process will follow the rules detailed below to generate the conv
 
   UNIFY_TEMPLATE_LOGIC:
     'Merge the logic (ts) and template (html) files into one unified component.',
+  KEEP_CSS_EXTENSION:
+    'css or css based files shouldnt be changed content or name wise',
   ADD_COMPONENT_SUFFIX:
     "Add '.component' to the filename, so 'example' becomes 'example.component'.",
   REMOVE_COMPONENT_SUFFIX:

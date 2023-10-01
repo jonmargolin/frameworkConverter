@@ -1,5 +1,10 @@
 import { Converter } from '../Converter';
-import { Framework, LogicExtension, TemplateExtention } from '../types';
+import {
+  Framework,
+  LogicExtension,
+  StyleExtension,
+  TemplateExtention
+} from '../types';
 import 'dotenv/config';
 
 describe('Converter class tests', () => {
@@ -26,6 +31,11 @@ describe('Converter class tests', () => {
           name: 'app.component',
           content: '<div>Hello Angular</div>',
           extension: TemplateExtention.HTML
+        },
+        {
+          name: 'app.component',
+          content: 'body { color: red; }',
+          extension: StyleExtension.CSS
         }
       ],
       targetExtension: LogicExtension.JSX
@@ -33,9 +43,10 @@ describe('Converter class tests', () => {
     const converter = new Converter(conversionRequest);
     const result = await converter.convert();
     const parsedResult = JSON.parse(result);
-    console.log({ componentFiles: parsedResult.componentFiles });
     expect(parsedResult.componentFiles[0].name).toBe('AppComponent');
     expect(parsedResult.componentFiles[0].extension).toBe(LogicExtension.JSX);
+    expect(parsedResult.componentFiles[1].content).toContain('color: red');
+    expect(parsedResult.componentFiles[1].extension).toBe(StyleExtension.CSS);
   });
 
   test('Convert a single-file React component to Angular', async () => {
@@ -70,8 +81,9 @@ describe('Converter class tests', () => {
     const converter = new Converter(conversionRequest);
     const result = await converter.convert();
     const parsedResult = JSON.parse(result);
-    console.log({ componentFiles: parsedResult.componentFiles });
     expect(parsedResult.componentFiles[0].name).toBe('MyComponent.component');
     expect(parsedResult.componentFiles[0].extension).toBe(LogicExtension.TS);
+    expect(parsedResult.componentFiles[0].content).toContain('ngOnInit');
+    expect(parsedResult.componentFiles[0].content).toContain('console.log');
   });
 });
