@@ -21,6 +21,15 @@ export enum TemplateExtention {
   HTML = 'html'
 }
 
+export enum GPTModels {
+  GPT_3_5_TURBO = 'gpt-3.5-turbo',
+  DAVINCI = 'davinci',
+  CURIE = 'curie',
+  BABBAGE = 'babbage',
+  ADA = 'ada'
+  // More models
+}
+
 export interface ComponentFile {
   name: string;
   content: string;

@@ -4,7 +4,7 @@ import { PROMPTS } from './prompts';
 export const CONVERSION_RULES: Record<ConversionType, string[]> = {
   [ConversionType.ANGULAR_TO_REACT]: [
     PROMPTS.INTRO_PROMPT,
-    PROMPTS.ANGULAR_TO_REACT,
+    PROMPTS.originToTarget('Angular', 'React'),
     PROMPTS.UNIFY_TEMPLATE_LOGIC,
     PROMPTS.REMOVE_COMPONENT_SUFFIX,
     PROMPTS.CONSIDER_TARGET_EXTENSION,
@@ -13,7 +13,7 @@ export const CONVERSION_RULES: Record<ConversionType, string[]> = {
   ],
   [ConversionType.REACT_TO_ANGULAR]: [
     PROMPTS.INTRO_PROMPT,
-    PROMPTS.REACT_TO_ANGULAR,
+    PROMPTS.originToTarget('React', 'Angular'),
     PROMPTS.ADD_COMPONENT_SUFFIX,
     PROMPTS.CONSIDER_TARGET_EXTENSION,
     PROMPTS.KEEP_CSS_EXTENSION,

@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import { ConversionRequest, PromptGeneratorArgs } from './types';
+import { ConversionRequest, PromptGeneratorArgs, GPTModels } from './types';
 import { PromptGenerator } from './PromptGenerator';
 
 export class Converter {
@@ -13,7 +13,7 @@ export class Converter {
 
   private async callGPT4API(prompt: string): Promise<string> {
     const GPTOutput = await this.openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: GPTModels.GPT_3_5_TURBO,
       messages: [
         {
           role: 'user',

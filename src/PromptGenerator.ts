@@ -17,9 +17,23 @@ export class PromptGenerator {
     this.componentFiles = args.componentFiles;
     this.targetExtension = args.targetExtension;
   }
+
   public generate(): string {
     const rulesDescription = CONVERSION_RULES[this.conversionType].join(' ');
-    const filesDescription = this.componentFiles
+    const filesDescription = this.getFileDescription();
+
+    return `${rulesDescription}
+    
+    {
+        "componentFiles": [
+            ${filesDescription}
+        ],
+        "targetExtension": "${this.targetExtension}"
+    }`;
+  }
+
+  private getFileDescription(): string {
+    return this.componentFiles
       .map(
         (file) =>
           `{
@@ -31,14 +45,5 @@ export class PromptGenerator {
             }`
       )
       .join(',');
-
-    return `${rulesDescription}
-    
-    {
-        "componentFiles": [
-            ${filesDescription}
-        ],
-        "targetExtension": "${this.targetExtension}"
-    }`;
   }
 }

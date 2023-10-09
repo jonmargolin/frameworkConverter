@@ -31,7 +31,8 @@ The conversion process will follow the rules detailed below to generate the conv
   the component will be converted from Angular to React`,
   REACT_TO_ANGULAR: `
   the component will be converted from React to Angular`,
-
+  originToTarget: (origin, target) =>
+    `the component will be converted from ${origin} to ${target}`,
   UNIFY_TEMPLATE_LOGIC:
     'Merge the logic (ts) and template (html) files into one unified component.',
   KEEP_CSS_EXTENSION:
