@@ -1,22 +1,25 @@
 import { ConversionType } from './types';
-import { PROMPTS } from './prompts';
+import { Prompts, promptMethods, PromptMethod } from './prompts';
 
-export const CONVERSION_RULES: Record<ConversionType, string[]> = {
+export const CONVERSION_RULES: Record<
+  ConversionType,
+  (Prompts | ReturnType<PromptMethod>)[]
+> = {
   [ConversionType.ANGULAR_TO_REACT]: [
-    PROMPTS.INTRO_PROMPT,
-    PROMPTS.originToTarget('Angular', 'React'),
-    PROMPTS.UNIFY_TEMPLATE_LOGIC,
-    PROMPTS.REMOVE_COMPONENT_SUFFIX,
-    PROMPTS.CONSIDER_TARGET_EXTENSION,
-    PROMPTS.KEEP_CSS_EXTENSION,
-    PROMPTS.RESPONSE_FORMAT
+    Prompts.INTRO_PROMPT,
+    promptMethods.originToTarget('Angular', 'React'),
+    Prompts.UNIFY_TEMPLATE_LOGIC,
+    Prompts.REMOVE_COMPONENT_SUFFIX,
+    Prompts.CONSIDER_TARGET_EXTENSION,
+    Prompts.KEEP_CSS_EXTENSION,
+    Prompts.RESPONSE_FORMAT
   ],
   [ConversionType.REACT_TO_ANGULAR]: [
-    PROMPTS.INTRO_PROMPT,
-    PROMPTS.originToTarget('React', 'Angular'),
-    PROMPTS.ADD_COMPONENT_SUFFIX,
-    PROMPTS.CONSIDER_TARGET_EXTENSION,
-    PROMPTS.KEEP_CSS_EXTENSION,
-    PROMPTS.RESPONSE_FORMAT
+    Prompts.INTRO_PROMPT,
+    promptMethods.originToTarget('React', 'Angular'),
+    Prompts.ADD_COMPONENT_SUFFIX,
+    Prompts.CONSIDER_TARGET_EXTENSION,
+    Prompts.KEEP_CSS_EXTENSION,
+    Prompts.RESPONSE_FORMAT
   ]
 };
