@@ -1,3 +1,5 @@
 /* eslint-disable */
 
-console.info('Hello World!');
+import { main } from './cli';
+
+main();
