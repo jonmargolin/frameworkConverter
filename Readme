@@ -1,2 +1,37 @@
-use "npm run compile" to transpile the typescript into js
-use "npm run convert" to activate the converter
+## install dependencies
+
+```bash
+npm install
+```
+
+
+## Available Scripts
+
+In the project directory, you can run:
+### `npm run compile`
+
+Compiles the TypeScript file `src/AngularToReactConverter.ts` using the TypeScript compiler.
+
+### `npm run convert`
+
+Runs the compiled AngularToReactConverter using Node.js.
+
+### `npm run build`
+
+Builds the app for production using Vite.
+
+### `npm start`
+
+Starts the application by running the compiled JavaScript file `dist/main.mjs`.
+
+### `npm run prettier-format`
+
+Formats all TypeScript files in the `src` directory using Prettier, according to the rules defined in `.prettierrc`.
+
+### `npm run lint`
+
+Runs ESLint to identify and report on patterns in TypeScript and TSX files.
+
+### `npm run prepare`
+
+Installs Husky hooks, typically used for setting up Git hooks for the project.
