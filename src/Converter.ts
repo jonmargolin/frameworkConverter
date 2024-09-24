@@ -1,7 +1,5 @@
-import { ConversionRequest, Framework } from './types';
 import OpenAI from 'openai';
-
-
+import { ConversionRequest } from './types.js';
 
 export class Converter {
   private conversionRequest: ConversionRequest;
@@ -19,13 +17,12 @@ export class Converter {
       ]
     }`;
 
-  constructor (conversionRequest: ConversionRequest) {
-
+  constructor(conversionRequest: ConversionRequest) {
     this.conversionRequest = conversionRequest;
     this.openai = new OpenAI({ apiKey: conversionRequest.apiKey });
   }
 
-  private async callGPT4API (prompt: string): Promise<string> {
+  private async callGPT4API(prompt: string): Promise<string> {
     try {
       const GPTOutput = await this.openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
@@ -51,7 +48,7 @@ export class Converter {
     }
   }
 
-  public async convert (): Promise<string> {
+  public async convert(): Promise<string> {
     let prompt = '';
 
     switch (this.conversionRequest.origin) {
